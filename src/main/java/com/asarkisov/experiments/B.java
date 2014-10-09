@@ -1,11 +1,11 @@
 package com.asarkisov.experiments;
 
 
-public class B<T extends B.Builder<T>> extends A<T> {
+public class B extends A {
 
 	private boolean booleanVal;
 
-	public B(Builder<T> builder) {
+	public B(Builder<?> builder) {
 		super(builder);
 		this.booleanVal = builder.booleanVal;
 	}
@@ -20,9 +20,9 @@ public class B<T extends B.Builder<T>> extends A<T> {
 		}
 
 		@Override
-		public B<T> create() {
+		public B create() {
 			System.out.println("Creating B");
-			return new B<>(this);
+			return new B(this);
 		}
 	}
 }

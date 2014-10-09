@@ -1,10 +1,10 @@
 package com.asarkisov.experiments;
 
-public class A<T extends A.Builder<T>> {
+public class A {
 
 	private String stringVal;
 
-	public A(Builder<T> builder) {
+	public A(Builder<?> builder) {
 		this.stringVal = builder.stringVal;
 	}
 
@@ -22,9 +22,9 @@ public class A<T extends A.Builder<T>> {
 			return self();
 		}
 
-		public A<T> create() {
+		public A create() {
 			System.out.println("Creating A");
-			return new A<>(this);
+			return new A(this);
 		}
 
 	}

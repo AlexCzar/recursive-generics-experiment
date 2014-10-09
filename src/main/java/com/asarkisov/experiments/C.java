@@ -1,10 +1,10 @@
 package com.asarkisov.experiments;
 
-public class C<T extends C.Builder<T>> extends A<T> {
+public class C extends A {
 
 	private final int intVal;
 
-	public C(Builder<T> builder) {
+	public C(Builder<?> builder) {
 		super(builder);
 		this.intVal = builder.intVal;
 	}
@@ -19,9 +19,9 @@ public class C<T extends C.Builder<T>> extends A<T> {
 		}
 
 		@Override
-		public C<T> create() {
+		public C create() {
 			System.out.println("Creating C");
-			return new C<>(this);
+			return new C(this);
 		}
 	}
 }
